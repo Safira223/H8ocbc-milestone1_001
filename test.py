@@ -11,18 +11,18 @@ class ApiTest(unittest.TestCase):
     API_URL = "http://127.0.0.1:5000/api/ui/"
     MOVIES_URL = "{}/movies".format(API_URL)
     movie = {
-            "movie_id : 43598",
-            "original_title : Outlander"
-            "budget : 938000000"
-            "popularity : 223"
-            "release_date : 1998-06-12"
-            "revenue : 961000003"
-            "title : Outlander"
-            "vote_average : 8.9"
-            "vote_count : 3456"
-            "tagline : Best romance series ever"
-            "overview : Time traveller"
-            "uid : 4823"      
+            "movie_id : 43597",
+            "original_title : Avatar"
+            "budget : 237000000"
+            "popularity : 150"
+            "release_date : 2009-12-10"
+            "revenue : 2787965087"
+            "title : Avatar"
+            "vote_average : 7.2"
+            "vote_count : 11800",
+            "overview : In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
+            "tagline : Enter the World of Pandora."
+            "uid : 19995"      
     }
     
     def test_1_get_all_movies(self):
@@ -35,13 +35,13 @@ class ApiTest(unittest.TestCase):
         self.assertEqual(r.status_code, 201)
         
     def test_3_get_new_movie(self):
-        movie_id = 43598
+        movie_id = 43597
         r = requests.get("{}/{}".format(ApiTest.MOVIES_URL, movie_id))
         self.assertEqual(r.status_code, 200)
         self.assertDictEqual(r.json(), ApiTest.movie)
         
     def test_6_delete_movie(self):
-        movie_id = 43598
+        movie_id = 43597
         r = requests.delete()
 
 if __name__ == '__main__':
